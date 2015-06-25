@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+KEYS_PEM="openssl_keys.pem"
+PRIV_KEY="openssl_private.key"
+PUB_KEY="openssl_public.key"
+
+openssl genrsa -out ${KEYS_PEM}
+openssl rsa -inform PEM -outform PEM -in ${KEYS_PEM} -out ${PRIV_KEY}
+openssl rsa -inform PEM -outform PEM -in ${KEYS_PEM} -out ${PUB_KEY} -pubout

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+POLARSSL_DIR="/Users/bbarr/opt/polarssl-1.1.8"
+PATH="${POLARSSL_DIR}/programs/pkey:${PATH}"
+RSA_GENKEY=$(which rsa_genkey)
+
+PRIV_KEY="polarssl_priv.txt"
+PUB_KEY="polarssl_pub.txt"
+
+${RSA_GENKEY}
+mv rsa_pub.txt ${PUB_KEY}
+mv rsa_priv.txt ${PRIV_KEY}
