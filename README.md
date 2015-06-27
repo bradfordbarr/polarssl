@@ -13,8 +13,9 @@ To build, run:
 make
 ```
 
-By default the application will use the openssl keys provided. To use PolarSSL
-keys run:
+This will create two executables, `sign` and `verify`. These executables will be 
+placed in the `./bin` directory. By default the application will use the openssl
+keys provided. To use PolarSSL keys run:
 
 ```sh
 make POLARSSL_KEYS=1
@@ -25,3 +26,17 @@ To regenerate keys run:
 ```sh
 make refresh
 ```
+
+To generate a signature run:
+
+```sh
+sign $INFILE > $OUTFILE
+```
+
+To verify the signature run:
+
+```sh
+verify $INFILE $OUTFILE
+```
+
+Where `$INFILE` and `$OUTFILE` are the same files from the `sign` command.
