@@ -6,3 +6,5 @@ rsa_pub.c
 *.dSYM
 node_modules/
 .tags*
+*.sig
+tmp/

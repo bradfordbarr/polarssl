@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+PATH="$(dirname ${BASH_SOURCE[0]}):${PATH}"
+VERIFY_FILE="${1}"
+SIGNATURE_FILE=$(mktemp -t $(basename $0))
+VERIFY=$(which verify)
+SIGN=$(which sign)
+
+if [ $# -ne 1 ]; then
+  echo "usage: validate <infile>" && exit 1
+fi
+
+${SIGN} ${VERIFY_FILE} > ${SIGNATURE_FILE}
+${VERIFY} ${VERIFY_FILE} ${SIGNATURE_FILE}
+STATUS=$?
+rm -rf ${SIGNATURE_FILE}
+exit ${STATUS}

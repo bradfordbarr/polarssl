@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  uint8_t signature[128] = { 0 };
+  uint8_t signature[512] = { 0 };
   if (0 != (err = rsa_pkcs1_sign(&rsa_ctx, ctr_drbg_random, &ctr_drbg_ctx, RSA_PRIVATE, SIG_RSA_SHA256, 32, sha256_hash, signature))) {
     fprintf(stderr, "SIGN ERROR: -0x%02X\n", -err);
     exit(1);

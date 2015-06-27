@@ -17,7 +17,7 @@ function usage(code, message) {
 function parse(data) {
   var headerMapping = {
     'modulus': 'N',
-    'Modulus (512 bit)': 'N',
+    'Modulus (1024 bit)': 'N',
     'publicExponent': 'E',
     'Exponent': 'E',
     'privateExponent': 'D',
